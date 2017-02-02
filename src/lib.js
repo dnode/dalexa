@@ -24,9 +24,11 @@ class Intent {
   constructor({ name, slots }) {
     this.name = name;
     this.slots = {};
-    Object.keys(slots).forEach((key) => {
-      this.slots[key] = slots[key].value;
-    });
+    if (slots) {
+      Object.keys(slots).forEach((key) => {
+        this.slots[key] = slots[key].value;
+      });
+    }
   }
 
   get(key) {
