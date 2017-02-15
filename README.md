@@ -3,7 +3,7 @@
 
 # Installation
 
-`npm i --save mxd-heimdall`
+`npm i --save dalexa`
 
 
 # Initialisation
@@ -12,7 +12,7 @@
 const app = require('dexpress');
 app.use(require('body-parser').json());
 
-const skill = new (require('./lib').Skill)();
+const skill = new (require('dalexa').Skill)();
 
 app.post('/', skill.getExpressHandler());
 ```
