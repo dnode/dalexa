@@ -1,10 +1,11 @@
 class Session {
-  constructor({ application, attributes, sessionId, user }) {
-    this.application = application;
-    this.attributes = attributes || {};
+  constructor(json) {
+    this.json = json;
+    this.application = json.application;
+    this.attributes = json.attributes || {};
     this.shouldEndSession = true;
-    this.sessionId = sessionId;
-    this.user = user;
+    this.sessionId = json.sessionId;
+    this.user = json.user;
   }
 
   clear() {

@@ -1,15 +1,16 @@
 const Intent = require('./Intent');
 
 class Request {
-  constructor({ error, intent, locale, reason, requestId, timestamp, type }) {
-    this.error = error;
-    this.locale = locale;
-    this.reason = reason;
-    this.requestId = requestId;
-    this.timestamp = timestamp;
-    this.type = type;
+  constructor(json) {
+    this.json = json;
+    this.error = json.error;
+    this.locale = json.locale;
+    this.reason = json.reason;
+    this.requestId = json.requestId;
+    this.timestamp = json.timestamp;
+    this.type = json.type;
     if (intent) {
-      this.intent = new Intent(intent);
+      this.intent = new Intent(json.intent);
     }
   }
 

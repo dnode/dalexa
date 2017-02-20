@@ -1,13 +1,14 @@
 class Intent {
-  constructor({ name, slots }) {
-    this.name = name;
+  constructor(json) {
+    this.json = json;
+    this.name = json.name;
     this.slots = {};
-    if (slots) {
-      for (const key in Object.keys(slots)) {
-        if (typeof slots[key] === 'object') {
-          this.slots[key] = slots[key].value;
+    if (json.slots) {
+      for (const key in Object.keys(json.slots)) {
+        if (typeof json.slots[key] === 'object') {
+          this.slots[key] = json.slots[key].value;
         } else {
-          this.slots[key] = slots[key];
+          this.slots[key] = json.slots[key];
         }
       }
     }
